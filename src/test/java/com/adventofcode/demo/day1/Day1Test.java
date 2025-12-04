@@ -21,11 +21,11 @@ class Day1Test {
 
     @BeforeEach
     void setUp() throws IOException {
-        String filename = "./day1data.txt";
-        Path pathToFile = Paths.get(filename);
-        log.info("Path {}", pathToFile);
+//        String filename = "./day1data.txt";
+//        Path pathToFile = Paths.get(filename);
+//        log.info("Path {}", pathToFile.toAbsolutePath());
         day1 = new Day1();
-        content = Files.readString(Path.of("./day1data.txt"));
+        content = Files.readString(Path.of("/Users/matthewsmacbook/noodles/demo/src/test/java/com/adventofcode/demo/day1data.txt"));
 
 //        List<Object> data = new ArrayList<>(
 //                new Day1Object("right", 16),
