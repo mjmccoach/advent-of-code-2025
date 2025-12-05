@@ -10,21 +10,30 @@ import java.util.List;
 @AllArgsConstructor
 public class Day1 {
 
-    public int crackPassword(String input) {
+    private int password = 0;
 
+    public int crackPassword(String input) {
             String[] rawTokens = input.split("\n");
             List<String> rawTokensList = Arrays.asList(rawTokens);
             rawTokensList.forEach(rawToken -> {
                 int pointer = 50;
-                int password = 0;
 
                 if (rawToken.contains("L")) {
                     String[] splitToken = rawToken.split("L");
                     pointer = pointer - Integer.parseInt(splitToken[1]);
                     if (pointer == 0) {
-                        password = password + 1;
+                        this.password = this.password + 1;
                     }
                 }
-            }
+
+                if (rawToken.contains("R")) {
+                    String[] splitToken = rawToken.split("R");
+                    pointer = pointer + Integer.parseInt(splitToken[1]);
+                    if (pointer == 0) {
+                        this.password = this.password + 1;
+                    }
+                }
+            });
+            return this.password;
     }
 }
